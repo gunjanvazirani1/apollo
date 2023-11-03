@@ -36,7 +36,7 @@ public class NamespaceAcquireLockAspectTest {
         MockitoAnnotations.initMocks(this);
         lockAspect = new NamespaceAcquireLockAspect(namespaceLockService, namespaceService, itemService, bizConfig);
     }
-
+//test case for CreateItem
     @Test
     public void testRequireLockAdviceForCreateItem() {
         String appId = "testApp";
@@ -58,6 +58,7 @@ public class NamespaceAcquireLockAspectTest {
                 lock.getNamespaceId() == mockNamespace.getId() && lock.getDataChangeCreatedBy().equals("testUser")));
     }
 
+    //test case for UpdateItem
     @Test
     public void testRequireLockAdviceForUpdateItem() {
         String appId = "testApp";
@@ -82,6 +83,7 @@ public class NamespaceAcquireLockAspectTest {
                 lock.getNamespaceId() == mockNamespace.getId() && lock.getDataChangeCreatedBy().equals("testUser")));
     }
 
+    //test case for UpdateItem by Change Set
     @Test
     public void testRequireLockAdviceForUpdateByChangeSet() {
         String appId = "testApp";
