@@ -18,6 +18,7 @@ package com.ctrip.framework.apollo.portal.service;
 
 import com.ctrip.framework.apollo.portal.enricher.adapter.UserInfoEnrichedAdapter;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Function;
 
 /**
@@ -33,4 +34,9 @@ public interface AdditionalUserInfoEnrichService {
    */
   <T> void enrichAdditionalUserInfo(List<? extends T> list,
       Function<? super T, ? extends UserInfoEnrichedAdapter> mapper);
+
+  <T> List<UserInfoEnrichedAdapter> adapt(List<? extends T> dtoList,
+                                          Function<? super T, ? extends UserInfoEnrichedAdapter> mapper);
+
+  <T> Set<String> extractOperatorId(List<UserInfoEnrichedAdapter> adapterList);
 }
